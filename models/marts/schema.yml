@@ -1,0 +1,43 @@
+version: 2
+
+models:
+  - name: dim_assets
+    description: "Asset dimension table"
+    columns:
+      - name: asset_id
+        tests:
+          - unique
+          - not_null
+      - name: ticker
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_date
+    description: "Date calendar dimension"
+    columns:
+      - name: date_id
+        tests:
+          - unique
+          - not_null
+      - name: price_date
+        tests:
+          - unique
+          - not_null
+
+  - name: fct_market_prices
+    description: "Fact table containing daily stock/crypto metrics"
+    columns:
+      - name: price_surrogate_key
+        tests:
+          - unique
+          - not_null
+      - name: asset_id
+        tests:
+          - not_null
+      - name: date_id
+        tests:
+          - not_null
+      - name: close_price
+        tests:
+          - not_null

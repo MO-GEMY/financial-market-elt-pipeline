@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: public
+    description: "Raw staging data loaded from the bronze layer"
+    tables:
+      - name: raw_market_prices
+        description: "Raw ticker price feed"
